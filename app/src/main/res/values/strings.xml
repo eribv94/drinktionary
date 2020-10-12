@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Drinktionary</string>
+
+    <string name="menu_question">Ready for a drink?</string>
+    <string name="op_menu_drinktionary">Drinktionary</string>
+    <string name="op_menu_sugestion">Don\'t know what to drink?</string>
+    <string name="op_menu_add">Add new drink</string>
+
+    <string name="add_name">Name</string>
+    <string name="add_place">Place</string>
+    <string name="add_brand">Brand</string>
+    <string name="add_score">Score</string>
+    <string name="add_key_words">Key Words</string>
+    <string name="add_type">Type</string>
+    <string name="add_price">Price</string>
+    <string name="add_image">Image</string>
+</resources>
