@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecomendationActivity"></activity>
+        <activity android:name=".ShowDrinkActivity"></activity>
+        <activity android:name=".RecomendationActivity" />
         <activity android:name=".AddBrandPlaceTypeActivity" />
         <activity android:name=".DrinktionaryActivity" />
         <activity android:name=".AddDrinkActivity" />

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +22,12 @@ public class CustomListView extends ArrayAdapter<String> {
     private ArrayList<String> rating;
     private ArrayList<String> price;
     private Activity context;
+    private ArrayList<String> id;
 
     public CustomListView(Activity context, ArrayList<String> drinks, ArrayList<String> description,
-                          Integer[] imageId, ArrayList<String> rating, ArrayList<String> price) {
+                          Integer[] imageId, ArrayList<String> rating, ArrayList<String> price, ArrayList<String> id) {
         super(context, R.layout.listview_layout, drinks);
+        this.id = id;
         this.context = context;
         this.drinks = drinks;
         this.description = description;

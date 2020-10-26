@@ -186,6 +186,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else if(column.equals("PRICE")){
             columnNum = 6;
         }
+        else if(column.equals("ID")){
+            columnNum = 0;
+        }
         if(cursorResult.getCount() == 0){
             return null;
         }else{
@@ -214,6 +217,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         else if(column.equals("PRICE")){
             columnNum = 6;
+        }
+        else if(column.equals("ID")){
+            columnNum = 0;
         }
         if(cursorResult.getCount() == 0){
             return null;

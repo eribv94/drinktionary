@@ -31,6 +31,8 @@ public class DrinktionaryActivity extends AppCompatActivity {
     ArrayList<String> drinksBrands;
     ArrayList<String> drinksRating;
     ArrayList<String> drinksPrice;
+    ArrayList<String> drinksId;
+
     Integer[] imageId = {R.drawable.bar, R.drawable.bar, R.drawable.bar, R.drawable.bar, R.drawable.bar, 0, 0, 0, 0, 0, 0, 0};
 
     //Filtros: Name - Place - Brand - Type - Score - Price
@@ -57,7 +59,7 @@ public class DrinktionaryActivity extends AppCompatActivity {
 
         Spinner orderSpinner = findViewById(R.id.orderSpinner);
         Spinner enlistSpinner = findViewById(R.id.enlistSpinner);
-        SearchView drinkSearchView = findViewById(R.id.drinkSearchView);
+        final SearchView drinkSearchView = findViewById(R.id.drinkSearchView);
 
         f1 = findViewById(R.id.f1TextView);
         f2 = findViewById(R.id.f2TextView);
@@ -77,10 +79,11 @@ public class DrinktionaryActivity extends AppCompatActivity {
         drinksBrands = dbh.getDrinksData("BRAND");
         drinksRating = dbh.getDrinksData("SCORE");
         drinksPrice = dbh.getDrinksData("PRICE");
-
+        drinksPrice = dbh.getDrinksData("PRICE");
+        drinksId = dbh.getDrinksData("ID");
 
         drinksListView = findViewById(R.id.drinksListView);
-        customListView = new CustomListView(this, drinksNames, drinksBrands, imageId, drinksRating, drinksPrice);
+        customListView = new CustomListView(this, drinksNames, drinksBrands, imageId, drinksRating, drinksPrice, drinksId);
         drinksListView.setAdapter(customListView);
 
         ArrayAdapter<String> orderDataAdapter =
@@ -88,6 +91,26 @@ public class DrinktionaryActivity extends AppCompatActivity {
         orderDataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orderSpinner.setAdapter(orderDataAdapter);
 
+        //Clicking a drink
+
+
+        //Drink search bar
+        drinkSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(DrinktionaryActivity.this, query, Toast.LENGTH_SHORT).show();
+                drinkSearchView.setQuery("", false);
+                drinkSearchView.clearFocus();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        // Order of drinks
         orderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -112,6 +135,11 @@ public class DrinktionaryActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) { }
         });
+    }
+
+    public void onDrinkSelected(View view){
+
+        Toast.makeText(this, "View clicked", Toast.LENGTH_SHORT).show();
     }
 
     public void addDrink(View view){
@@ -178,8 +206,9 @@ public class DrinktionaryActivity extends AppCompatActivity {
         drinksBrands = dbh.getDrinksData("BRAND", order, ascOrDesc);
         drinksRating = dbh.getDrinksData("SCORE", order, ascOrDesc);
         drinksPrice = dbh.getDrinksData("PRICE", order, ascOrDesc);
+        drinksId = dbh.getDrinksData("ID", order, ascOrDesc);
 
-        customListView = new CustomListView(this, drinksNames, drinksBrands, imageId, drinksRating, drinksPrice);
+        customListView = new CustomListView(this, drinksNames, drinksBrands, imageId, drinksRating, drinksPrice, drinksId);
         drinksListView.setAdapter(customListView);
     }
 

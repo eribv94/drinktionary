@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:background="#8A8989"
+        android:onClick="onDrinkSelected"
         android:padding="15dp">
 
         <ImageView

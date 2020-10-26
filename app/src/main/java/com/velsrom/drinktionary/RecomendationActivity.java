@@ -15,6 +15,8 @@ public class RecomendationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recomendation);
 
+        //Cuando haces busqueda para una recomendacion
+
         Intent data = getIntent();
         String query = data.getStringExtra("QUERY");
         TextView tv = findViewById(R.id.textView3);
