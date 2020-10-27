@@ -186,6 +186,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else if(column.equals("PRICE")){
             columnNum = 6;
         }
+        else if(column.equals("IMAGE")){
+            columnNum = 7;
+        }
         else if(column.equals("ID")){
             columnNum = 0;
         }
@@ -217,6 +220,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         else if(column.equals("PRICE")){
             columnNum = 6;
+        }
+        else if(column.equals("IMAGE")){
+            columnNum = 7;
         }
         else if(column.equals("ID")){
             columnNum = 0;

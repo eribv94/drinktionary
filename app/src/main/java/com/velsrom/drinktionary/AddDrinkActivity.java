@@ -181,9 +181,6 @@ public class AddDrinkActivity extends AppCompatActivity {
                 typeAdapter.notifyDataSetChanged();
             }
         } else {
-            System.out.println(data);
-            System.out.println(data.getExtras().get("data"));
-
             if (resultCode == RESULT_OK && data != null) {
                 File photoFile = new File(getFilesDir() + "/Drinks/");
                 if (!photoFile.isFile()) {
@@ -237,7 +234,6 @@ public class AddDrinkActivity extends AppCompatActivity {
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(pickPhoto , 1);
         }
-
         imagepath = "";
     }
 
